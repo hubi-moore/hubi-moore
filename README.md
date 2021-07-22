@@ -1,9 +1,6 @@
 
 ## 👋 Hi, I’m @hubi-moore
-<!---
-hubi-moore/hubi-moore is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+
 ```php
 $user = array(
     "greetings" => "Hi! I'm Hubert Hart and this is my profile",
