@@ -11,9 +11,7 @@ $user = array(
         "emails" => array("hubert@network-interactive.pl", "hart.hubert@yahoo.com"),
         "phone" => false,
         "skills" => array("PHP","SQL","JavaScript","HTML","CSS","the ability to learn quickly"),
-        "company" => "NETWORK SP. Z O.O.",
-        "URL" => "https://network-interactive.pl",
-        "favourite_drinks" => array("coffe","Black Russian")
+        "favourite_drinks" => array("coffe","Irish whiskey")
     )
 );
 ```
