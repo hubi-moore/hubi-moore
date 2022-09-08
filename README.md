@@ -9,7 +9,7 @@ $user = array(
         "gender" => "male",
         "nickname" => "HubiMoore",
         "emails" => array("hubert@network-interactive.pl"),
-        "phone" => false,
+        "phone" => null,
         "skills" => array("PHP","SQL","JavaScript","HTML","CSS","the ability to learn quickly"),
         "favourite_drinks" => array("coffe","Irish whiskey")
     )
