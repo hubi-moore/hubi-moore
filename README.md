@@ -19,5 +19,5 @@ $user = array(
 
 ## Hi! I'm Hubert Hart and this is my profile
 
-<figure><img src="https://github-readme-stats.vercel.app/api?username=hubi-moore&#x26;count_private=true&#x26;show_icons=true&#x26;theme=great-gatsby" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://github-readme-stats.vercel.app/api?username=hubi-moore&#x26;count_private=true&#x26;show_icons=true&#x26;include_all_commits=true&#x26;theme=great-gatsby" alt=""><figcaption></figcaption></figure>
 
