@@ -1,5 +1,4 @@
-
-## 👋 Hi, I’m @hubi-moore
+# Hi, I’m @hubi-moore
 
 ```php
 $user = array(
@@ -15,5 +14,10 @@ $user = array(
     )
 );
 ```
+
 `print_r($user["greetings"]);`
-### Hi! I'm Hubert Hart and this is my profile
+
+## Hi! I'm Hubert Hart and this is my profile
+
+<figure><img src="https://github-readme-stats.vercel.app/api?username=hubi-moore&#x26;count_private=true&#x26;show_icons=true&#x26;theme=great-gatsby" alt=""><figcaption></figcaption></figure>
+
