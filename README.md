@@ -19,6 +19,14 @@ $user = array(
 
 ## Hi! I'm Hubert Hart and this is my profile
 
-[![HubiMoore's GitHub stats-Dark](https://github-readme-stats-hubi-moore.vercel.app/api?username=hubi-moore&count_private=true&theme=great-gatsby#gh-dark-mode-only)](https://github.com/hubi-moore/github-readme-stats#gh-dark-mode-only)
-[![HubiMoore's GitHub stats-Light](https://github-readme-stats-hubi-moore.vercel.app/api?username=hubi-moore&count_private=true&theme=great-gatsby#gh-light-mode-only)](https://github.com/hubi-moore/github-readme-stats#gh-light-mode-only)
-
+<picture>
+<source 
+  srcset="https://github-readme-stats-hubi-moore.vercel.app/api?username=hubi-moore&count_private=true&theme=great-gatsby"
+  media="(prefers-color-scheme: dark)"
+/>
+<source
+  srcset="https://github-readme-stats-hubi-moore.vercel.app/api?username=hubi-moore&count_private=true"
+  media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+/>
+<img src="https://github-readme-stats-hubi-moore.vercel.app/api?username=hubi-moore&count_private=true" />
+</picture>
