@@ -9,7 +9,7 @@
       <h3>Hubert Hart - Magento 2 Developer</h3>
       <ul style="list-style: none;margin-left: 0;padding-left: 0;">
         <li>📧 <a href="mailto:hubert@network-interactive.pl">Email Me</a></li>
-        <li>💼 <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
+        <li>💼 <a href="https://www.linkedin.com/in/hubert-hart/">LinkedIn</a></li>
         <li>🛠️ Skills: PHP, SQL, JavaScript, HTML, CSS</li>
         <li>☕ Favourite Drinks: Coffee, Irish Whiskey</li>
       </ul>
