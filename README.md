@@ -1,4 +1,4 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&duration=3500&pause=250&color=478BE6&center=true&random=false&width=435&lines=Hi!+I'm+Hubert+Hart;I+am+frontend+(mostly)+developer;I+am+Magento+2+Developer)](mailto:hubert@network-interactive.pl)
+<a href="mailto:hubert@network-interactive.pl" style="display:block;width:100%;"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&duration=3500&pause=250&color=478BE6&center=true&random=false&width=435&lines=Hi!+I'm+Hubert+Hart;I+am+frontend+(mostly)+developer;I+am+Magento+2+Developer" alt="Typing SVG" style="max-width: 100%;width: 100%;" /></a>
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
     <td style="width: 110px;">
