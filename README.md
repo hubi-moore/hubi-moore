@@ -1,3 +1,4 @@
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&duration=3500&pause=250&color=478BE6&center=true&random=false&width=435&lines=Hi!+I'm+Hubert+Hart;I+am+frontend+(mostly)+developer;I+am+Magento+2+Developer)](mailto:hubert@network-interactive.pl)
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
     <td style="width: 110px;">
@@ -16,5 +17,3 @@
     </td>
   </tr>
 </table>
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=25&duration=3000&color=0969DA&multiline=true&repeat=false&random=false&width=500&height=95&lines=Hi!+I'm+Hubert+Hart;I+am+frontend++(mostly)++;Magento+2+Developer)](mailto:hubert@network-interactive.pl)
