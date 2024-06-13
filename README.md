@@ -1,9 +1,6 @@
 <div style="display: flex;align-items: center;flex-direction: row;flex-wrap: wrap;align-content: flex-start;justify-content: flex-start;gap: 10px;">
-  <div>
-    <a href="http://your-website.com"><img src="./logo/logo.png" alt="Logo" style="width: 110px;max-width: 100%;height: auto;"></a>
-  </div>
-  <div style="margin-left: 20px;">
-    <h3>Hubert Hart - Magento 2 Developer</h3>
+  <div><a href="http://your-website.com"><img src="./logo/logo.png" alt="Logo" style="width: 110px;max-width: 100%;height: auto;"></a></div>
+  <div style="margin-left: 20px;"><h3>Hubert Hart - Magento 2 Developer</h3>
     <ul>
       <li>📧 <a href="mailto:hubert@network-interactive.pl">Email Me</a></li>
       <li>💼 <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
