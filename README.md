@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <td><a href="https://network-interactive.pl"><img src="./logo.png" alt="Logo" style="width: 150px;"/></a></td>
+    <td><a href="https://network-interactive.pl"><img src="./logo/logo.png" alt="Logo" style="width: 150px;"/></a></td>
     <td>
       <h3>Hubert Hart - Magento 2 Developer</h3>
       <ul>
