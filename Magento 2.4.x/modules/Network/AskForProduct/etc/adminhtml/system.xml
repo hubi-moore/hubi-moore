@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="network" translate="label" sortOrder="999">
+            <label>Network</label>
+        </tab>
+        <section id="askforproduct" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+            <label>Ask for Product</label>
+            <tab>network</tab>
+            <resource>Network_AskForProduct::config_network_askforproduct</resource>
+            <group id="general" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                <label>General Settings</label>
+                <field id="email" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Email Recipient</label>
+                    <comment>Enter the email address to receive product inquiries.</comment>
+                </field>
+                <field id="image" type="image" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Logo Image</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">askforproduct/logo</upload_dir>
+                    <base_url type="media" scope_info="1">askforproduct/logo/</base_url>
+                    <comment>Upload an image for the button logo (max 25px).</comment>
+                </field>
+                <field id="header_text" type="text" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Header Text</label>
+                    <comment>Enter the text for the button header.</comment>
+                </field>
+                <field id="subtext" type="text" sortOrder="40" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Subtext</label>
+                    <comment>Enter the optional subtext below the button.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

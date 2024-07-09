@@ -1,0 +1,30 @@
+<!--@subject {{trans "Ask about this product"}} @-->
+<!--@vars {
+"var message":"Message",
+"var product_link":"Product Link",
+"var sku":"SKU",
+"var email":"Customer Email",
+"var name":"Customer Name"
+} @-->
+{{template config_path="design/email/header_template"}}
+<table class="message-details">
+    <tr>
+        <td><strong>{{trans "Name"}}:</strong></td>
+        <td>{{var name}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Email"}}:</strong></td>
+        <td>{{var email}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "SKU"}}:</strong></td>
+        <td>{{var sku}}</td>
+    </tr>
+    <tr>
+        <td><strong>{{trans "Product Link"}}:</strong></td>
+        <td><a href="{{var product_link}}">{{var product_link}}</a></td>
+    </tr>
+</table>
+<p><strong>{{trans "Message"}}</strong></p>
+<p>{{var message}}</p>
+{{template config_path="design/email/footer_template"}}

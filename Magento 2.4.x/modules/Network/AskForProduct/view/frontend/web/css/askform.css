@@ -1,0 +1,57 @@
+.ask4product-modal .modal-inner-wrap {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+}
+
+.ask4product-modal .modal-inner-wrap .fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+.ask4product-modal footer.modal-footer {
+    padding-bottom: 0rem;
+    padding-top: 2rem;
+}
+
+.ask4product-modal .modal-content {
+    padding-bottom: 1rem;
+}
+
+.ask4product-modal .modal-inner-wrap .fieldset > .field {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+}
+.ask4product-modal .action.primary,
+.ask4product-modal .action-primary {
+    background-image: none;
+    background: #183883;
+    border: 1px solid #183883;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    padding: 7px 15px;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.ask4product-modal .action.primary:hover,
+.ask4product-modal .action-primary:hover {
+    background: rgba(24,56,131,0.8);
+    border: 1px solid rgba(24,56,131,0.8);
+}
+@media all and (min-width: 768px) {
+
+    .ask4product-modal .modal-inner-wrap .fieldset > .field:not(.field-message) {
+        max-width: calc((100% - 10px) / 2);
+    }
+}
