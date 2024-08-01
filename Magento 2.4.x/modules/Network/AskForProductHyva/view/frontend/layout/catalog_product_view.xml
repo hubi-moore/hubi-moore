@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="hyva_form_validation"/>
+    <head>
+        <!-- Dodanie pliku JS -->
+<!--        <script src="Network_AskForProductHyva::js/askform.js"/>-->
+        <!-- Dodanie pliku CSS -->
+        <css src="Network_AskForProductHyva::css/askform.css"/>
+    </head>
+    <body>
+        <referenceContainer name="product.info.additional.actions">
+            <block class="Network\AskForProductHyva\Block\AskForm" name="askforproduct.form" template="Network_AskForProductHyva::form.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

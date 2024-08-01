@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Mail/etc/email_templates.xsd">
+    <template id="askforproduct_email_template" label="Ask For Product Email Template" file="askforproduct_email_template.html" type="html" module="Network_AskForProductHyva" area="frontend"/>
+</config>

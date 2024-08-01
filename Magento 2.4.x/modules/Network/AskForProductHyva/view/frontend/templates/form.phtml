@@ -1,0 +1,189 @@
+<?php
+
+use Magento\Framework\Escaper;
+
+/** @var Network\AskForProductHyva\Block\AskForm $block */
+/** @var Escaper $escaper */
+
+if ($block->isModuleEnabled()):
+    $product = $block->getProduct();
+    $productUrl = $product->getUrlModel()->getUrlInStore($product, ['_ignore_category' => true]);
+    $sku = $product->getSku();
+    $customerName = $block->getCustomerName();
+    $customerEmail = $block->getCustomerEmail();
+    $logoImage = $block->getLogoImage();
+    $headerText = $block->getHeaderText();
+    $subtext = $block->getSubtext();
+    ?>
+    <div class="ask-for-product">
+        <div x-data="{}" class="flex flex-wrap p-0 border-0 text-sm mb-3 mt-3">
+            <button class="flex scroll-lock p-0 border-0" @click="$dispatch('modal-ex')">
+                <?php if ($logoImage): ?>
+                    <img src="<?php echo $logoImage; ?>" alt="Logo" class="ask-for-product-logo"/>
+                <?php endif; ?>
+                <span class="text-sm ml-2 hover:underline"><?php echo __($headerText); ?></span>
+            </button>
+            <?php if ($subtext): ?>
+                <div class="ask-for-product-subtext"><?php echo __($subtext); ?></div>
+            <?php endif; ?>
+        </div>
+
+        <script>
+            window.showAFPAlert = (type, message) => {
+                typeof window.dispatchMessages !== "undefined" && window.dispatchMessages(
+                    [{
+                        type: type,
+                        text: message
+                    }], 10000
+                );
+            };
+            window.showAskForProductModal = () => {
+                return {
+                    modal: false,
+                    submitForm(event) {
+                        let form = document.querySelector('#ask-for-product-form');
+                        form.querySelector('[x-ref="AFPSubmit"]').click();
+                    },
+                    formFieldsToggle() {
+                        this.modal = !this.modal;
+                        let modalForm = document.querySelector('#ask-for-product-form');
+                        let elements = modalForm.querySelectorAll('input, textarea, button');
+                        if (this.modal === true) {
+                            elements.forEach((elem) => {
+                                elem.removeAttribute('disabled');
+                            });
+                            document.body.classList.add('body-scroll-lock');
+                        } else {
+                            elements.forEach((elem) => {
+                                elem.setAttribute('disabled', true);
+                            });
+                            document.body.classList.remove('body-scroll-lock');
+                        }
+                    }
+                }
+            };
+
+            function initAFPForm() {
+                return {
+                    myFormSubmit(event) {
+                        event.preventDefault();
+                        let initAFPComponent = this.$refs.initAFP;
+                        let modalMethods = false;
+                        if (initAFPComponent && initAFPComponent._x_dataStack) {
+                            modalMethods = initAFPComponent._x_dataStack[0];
+
+                        }
+                        this.validate()
+                            .then(() => {
+                                // all fields validated
+                                let form = document.querySelector('#ask-for-product-form');
+                                if (!form.action) {
+                                    return;
+                                }
+                                const action = form.action;
+                                const formData = new FormData(form);
+
+                                if (!formData.uenc) {
+                                    formData.append('uenc', hyva.getUenc());
+                                }
+
+                                formData.append('form_key', hyva.getFormKey());
+                                window.fetch(action, {
+                                    method: 'POST',
+                                    body: formData
+                                }).then(response => {
+                                    // Ensure that the response is parsed as JSON
+                                    if (response.ok) {
+                                        return response.json();
+                                    } else {
+                                        throw new Error('Network response was not ok.');
+                                    }
+                                }).then(data => {
+                                    if (data.success) {
+                                        if (data.status !== 3) {
+                                            window.showAFPAlert('success', data.message);
+                                            if (typeof modalMethods.formFieldsToggle === 'function') {
+                                                modalMethods.formFieldsToggle();
+                                            }
+                                        }
+                                    } else {
+                                        if (data.status !== 3) {
+                                            window.showAFPAlert('error', data.message);
+                                            if (typeof modalMethods.formFieldsToggle === 'function') {
+                                                modalMethods.formFieldsToggle();
+                                            }
+                                        }
+                                    }
+                                }).catch((error) => {
+                                    console.error(error);
+                                    typeof window.dispatchMessages !== "undefined" && window.dispatchMessages(
+                                        [{
+                                            type: "error",
+                                            text: "<?= $escaper->escapeJs(__("Something went wrong. Please try again.")) ?>"
+                                        }], 10000
+                                    );
+                                    if (typeof modalMethods.formFieldsToggle === 'function') {
+                                        modalMethods.formFieldsToggle();
+                                    }
+                                });
+                            }).catch((invalid) => {
+                                if (invalid.length > 0) {
+                                    invalid[0].focus();
+                                }
+                            });
+                    }
+                }
+            }
+        </script>
+        <div x-ref="initAFP" id="afpTEST" x-data="showAskForProductModal">
+            <div
+                class="modal-wrapper"
+                :class="{ 'active': modal }"
+                x-on:modal-ex.window="formFieldsToggle"
+            >
+                <div class="backdrop backdrop-shaded scroll-unlock" x-show.transition.opacity.duration.600ms="modal"
+                     @click="formFieldsToggle"></div>
+                <div class="modal-panel ask-for-product-modal bg-color-background flex flex-col modal-panel p-3"
+                     :class="{ 'active': modal }">
+                    <div
+                        class="border-b border-primary font-semibold modal-title p-2 text-xl"><?php echo __($headerText); ?></div>
+                    <form x-data="{...initAFPForm(),...hyva.formValidation($el)}"
+                          @submit.prevent="myFormSubmit" id="ask-for-product-form"
+                          action="<?php echo $block->getFormAction(); ?>" method="post">
+                        <input type="hidden" name="sku" value="<?php echo $sku; ?>">
+                        <input type="hidden" name="product_link" value="<?php echo $productUrl; ?>">
+                        <div class="fieldset flex flex-wrap">
+                            <div class="field name required p-2 w-1/2 text-left">
+                                <label for="name"><?php echo __('Name'); ?></label>
+                                <input type="text" disabled id="name" name="name" class="input input-light w-full"
+                                       data-validate='{"required": true}' value="<?php echo $customerName; ?>" required>
+                            </div>
+                            <div class="field email required p-2 w-1/2 text-left">
+                                <label for="email"><?php echo __('Email'); ?></label>
+                                <input type="email" disabled id="email" name="email" class="input input-light w-full"
+                                       data-validate='{"required": true, "email": true}'
+                                       value="<?php echo $customerEmail; ?>" required>
+                            </div>
+                            <div class="field field-important required" style="display:none !important;">
+                                <input type="text" name="isimportant" value="">
+                            </div>
+                            <div class="field field-message p-2 w-full text-left required">
+                                <label for="message"><?php echo __('Message'); ?></label>
+                                <textarea id="message" data-validate='{"required": true}' disabled name="message"
+                                          class="input input-light w-full h-48"
+                                          required></textarea>
+                            </div>
+                        </div>
+                        <button x-ref="AFPSubmit" type="submit" @click.prevent="myFormSubmit" style="display: none"><?= __('Submit') ?></button>
+                    </form>
+                    <div
+                        class="modal-footer border-primary border-t flex flex-row flex-wrap gap-4 items-end justify-end m-2 pt-2">
+                        <button type="submit" @click.prevent="submitForm()"><?= __('Submit') ?></button>
+                        <button class="float-right scroll-unlock"
+                                @click="formFieldsToggle"><?php echo __('Close'); ?></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

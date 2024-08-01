@@ -1,0 +1,131 @@
+.ask4product-modal .modal-inner-wrap {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+}
+
+.ask4product-modal .modal-inner-wrap .fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+.ask4product-modal footer.modal-footer {
+    padding-bottom: 0rem;
+    padding-top: 2rem;
+}
+
+.ask4product-modal .modal-content {
+    padding-bottom: 1rem;
+}
+
+.ask4product-modal .modal-inner-wrap .fieldset > .field {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+}
+.ask4product-modal .action.primary,
+.ask4product-modal .action-primary {
+    background-image: none;
+    background: #183883;
+    border: 1px solid #183883;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    padding: 7px 15px;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.ask4product-modal .action.primary:hover,
+.ask4product-modal .action-primary:hover {
+    background: rgba(24,56,131,0.8);
+    border: 1px solid rgba(24,56,131,0.8);
+}
+@media all and (min-width: 768px) {
+
+    .ask4product-modal .modal-inner-wrap .fieldset > .field:not(.field-message) {
+        max-width: calc((100% - 10px) / 2);
+    }
+}
+/*
+    Common
+    _____________________________________________
+*/
+
+.ask-for-product .modal-wrapper {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: 999;
+    transition: height 0s ease-out 1s;
+}
+
+.ask-for-product .modal-wrapper.active {
+    height: 100%;
+    transition: height 0s ease-in 0s;
+    z-index: 10000;
+}
+
+.ask-for-product .modal-wrapper.active .backdrop {
+    visibility: visible;
+    opacity: 1;
+    z-index: 100001;
+}
+
+.ask-for-product .modal-wrapper .backdrop {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+}
+
+.ask-for-product .modal-panel {
+    position: relative;
+    max-height: 90vh;
+    z-index: 999;
+    overflow: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.ask-for-product .modal-panel.active {
+    opacity: 1;
+    transform: none;
+    z-index: 100002;
+}
+
+.ask-for-product .modal-panel-cover {
+    display: block;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    overflow: auto;
+}
+.body-scroll-lock {
+    touch-action: none;
+    overflow: hidden;
+}
+.body-scroll-lock .simplebundle-selection-item.card.p-5.relative {
+    position: static;
+}
+.ask-for-product-subtext {
+    font-size: .75rem;
+    line-height: normal;
+}
