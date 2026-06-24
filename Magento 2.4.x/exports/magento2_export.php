@@ -173,19 +173,26 @@ function getAttrValue(PDO $pdo, string $prefix, int $entityId, ?int $attrId, int
     $input = $meta['frontend_input'];
 
     // Dla select/multiselect pobierz label opcji
+    // Magento zazwyczaj trzyma w _int, ale niektorе instalacje uzywaja _varchar
     if (in_array($input, ['select', 'multiselect'])) {
-        $table = "{$prefix}catalog_product_entity_int";
-        $stmt = $pdo->prepare("
-            SELECT ov.value AS label
-            FROM $table a
-            JOIN {$prefix}eav_attribute_option o ON o.option_id = a.value
-            JOIN {$prefix}eav_attribute_option_value ov ON ov.option_id = o.option_id AND ov.store_id = 0
-            WHERE a.entity_id = ? AND a.attribute_id = ?
-            ORDER BY a.store_id DESC LIMIT 1
-        ");
-        $stmt->execute([$entityId, $attrId]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $row ? $row['label'] : '';
+        $tables = ($type === 'varchar')
+            ? ["{$prefix}catalog_product_entity_varchar"]
+            : ["{$prefix}catalog_product_entity_int", "{$prefix}catalog_product_entity_varchar"];
+
+        foreach ($tables as $table) {
+            $stmt = $pdo->prepare("
+                SELECT ov.value AS label
+                FROM $table a
+                JOIN {$prefix}eav_attribute_option o ON o.option_id = CAST(a.value AS UNSIGNED)
+                JOIN {$prefix}eav_attribute_option_value ov ON ov.option_id = o.option_id AND ov.store_id = 0
+                WHERE a.entity_id = ? AND a.attribute_id = ?
+                ORDER BY a.store_id DESC LIMIT 1
+            ");
+            $stmt->execute([$entityId, $attrId]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($row && $row['label'] !== null) return $row['label'];
+        }
+        return '';
     }
 
     $tableMap = [
