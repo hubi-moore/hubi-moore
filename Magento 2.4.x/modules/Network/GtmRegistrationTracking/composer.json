@@ -1,0 +1,20 @@
+{
+    "name": "network/module-gtm-registration-tracking",
+    "description": "Sledzenie 2-etapowej rejestracji konta (formularz + utworzenie konta) do warstwy danych GTM.",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "version": "1.0.0",
+    "require": {
+        "php": "~8.1.0||~8.2.0||~8.3.0",
+        "magento/framework": "*",
+        "magento/module-customer": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Network\\GtmRegistrationTracking\\": ""
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!--
+        customer_register_success to natywny event Magento, wywoływany przez
+        Magento\Customer\Model\AccountManagement::createAccount() zaraz po
+        pomyślnym utworzeniu konta (kontroler CreatePost, Krok 2 z briefu).
+    -->
+    <event name="customer_register_success">
+        <observer name="network_gtm_registration_flag"
+                  instance="Network\GtmRegistrationTracking\Observer\SetRegistrationFlag"/>
+    </event>
+</config>
